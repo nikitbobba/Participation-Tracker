@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <script src="script.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Participation App</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        background-color: #edf0f4;
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+    #classTable {
+        width: 650px;
+        margin-left: 242px;
+        margin-top: 50px;
+        margin-bottom: 30px;
+    }
+    .swag {
+      text-align: center;
+    }
+    #finish {
+      color: black;
+    }
+    #main {
+      margin-top: 50px;
+      background-color: white;
+      height: 600px;
+    }
+    #myTitle {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      font-weight: normal;
+    }
+    .studentName {
+      text-align: left;
+    }
+    .col-md-6 {
+      overflow-y: scroll;
+      height: 300px;
+      width: inherit;
+      margin-bottom: 20px;
+    }
+    #navz {
+        background-color:white;
+        color: #black;
+    }
+/*
+    .titlez:hover {
+        color: #edf0f4;
+    }
+*/
+    .navbar-header:hover, .nav-itemz:hover {
+        background-color: #edf0f4;
+    }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body onload="refresh()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navz">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color:black" href="index.html">
+                    <div class="titlez">Participation Tracker
+                    </div>
+                        </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-itemz">
+                        <a id="swagz" style="color:black" href="edit.html">
+                            <div class="titlez">Edit Class
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-itemz">
+                        <a style="color:black" href="track.html">
+                            <div class="titlez">Track Participation
+                            </div>
+                                </a>
+                    </li>
+                    <li class="nav-itemz">
+                        <a style="color:black" href="summary.html">
+                            <div class="titlez">Summary
+                            </div>
+                                </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" id ="main">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 id="myTitle">Track Participation</h1>
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-6 text-center">
+                  <table id ="classTable" class="table table-hover">
+                                  <thead>
+                                      <tr>
+                                          <th class="swag" style="text-align:left">Name</th>
+                                          <th class="swag">Decrease Count</th>
+                                          <th class="swag">Increase Count</th>
+                                          <th class="swag">Participation Count</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr>
+                                          <td class="studentName">Bobby P.</td>
+                                          <td><button id = "1minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "1plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "1">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Bobby C.</td>
+                                          <td><button id = "2minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "2plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "2">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Nikit B.</td>
+                                          <td><button id = "3minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "3plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "3">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Homer S.</td>
+                                          <td><button id = "4minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "4plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "4">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Prannay S.</td>
+                                          <td><button id = "5minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "5plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "5">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Ori G.</td>
+                                          <td><button id = "6minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "6plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "6">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Marge S.</td>
+                                          <td><button id = "7minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "7plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "7">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Carl G.</td>
+                                          <td><button id = "8minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "8plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "8">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Daryl D.</td>
+                                          <td><button id = "9minus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "9plus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "9">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Ned F.</td>
+                                          <td><button id = "Aminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Aplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "A">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Philip G.</td>
+                                          <td><button id = "Bminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Bplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "B">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Rick G.</td>
+                                          <td><button id = "Cminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Cplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "C">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Bart S.</td>
+                                          <td><button id = "Cminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Cplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "C">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Rovik R.</td>
+                                          <td><button id = "Dminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Dplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "D">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Ted M.</td>
+                                          <td><button id = "Eminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Eplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "E">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Ross G.</td>
+                                          <td><button id = "Fminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Fplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "F">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Gregory H.</td>
+                                          <td><button id = "Gminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Gplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "G">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Frank U.</td>
+                                          <td><button id = "Hminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Hplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "H">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Pablo E.</td>
+                                          <td><button id = "Iminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Iplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "I">0</td>
+                                      </tr>
+                                      <tr>
+                                          <td class="studentName">Joey T.</td>
+                                          <td><button id = "Jminus" onClick="minus(this.id)">-</button></td>
+                                          <td><button id = "Jplus" onClick="plus(this.id)">+</button></td>
+                                          <td id = "J">0</td>
+                                      </tr>
+                                  </tbody>
+                              </table>
+                            </div>
+                          </div>
+                            <div class="col-md-3">
+                            </div>
+            </div>
+        <!-- /.row -->
+        <div class="row text-center">
+        <a href="summary.html" id ="finish"> <button> Finish Session </button> </a>
+      </div>
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

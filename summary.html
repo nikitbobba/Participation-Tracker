@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="script.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Participation App</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Custom CSS -->
+    <style>
+    body {
+        background-color: #edf0f4;
+        padding-top: 70px;
+        /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
+    }
+        /* The switch - the box around the slider */
+.switch {
+  position: relative;
+    float:right;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+    #main {
+      margin-top: 50px;
+      background-color: white;
+      height: 600px;
+    }
+    #myTitle {
+      margin-top: 40px;
+      font-weight: normal;
+    }
+    #finish {
+      color: black;
+    }
+    #graphz {
+      margin-top: 25px;
+      width: 700px;
+      height: 400px;
+    }
+    .togglebutton {
+      width: 500px;
+    }
+    #navz {
+        background-color:white;
+        color: #black;
+    }
+/*
+    .titlez:hover {
+        color: #edf0f4;
+    }
+*/
+    .navbar-header:hover, .nav-itemz:hover {
+        background-color: #edf0f4;
+    }
+        #axis {
+            float: left;
+            margin-top: 28px;
+            margin-left: 25px;
+        }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" id="navz">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="color:black" href="index.html">
+                    <div class="titlez">Participation Tracker
+                    </div>
+                        </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav-itemz">
+                        <a id="swagz" style="color:black" href="edit.html">
+                            <div class="titlez">Edit Class
+                            </div>
+                        </a>
+                    </li>
+                    <li class="nav-itemz">
+                        <a style="color:black" href="track.html">
+                            <div class="titlez">Track Participation
+                            </div>
+                                </a>
+                    </li>
+                    <li class="nav-itemz">
+                        <a style="color:black" href="summary.html">
+                            <div class="titlez">Summary
+                            </div>
+                                </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container" id="main">
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1 id="myTitle">Today's Participation</h1>
+            </div>
+        </div>
+        <div class="row">
+                <div class="col">
+<img src="axis.png" id="axis"></img>
+            </div>
+            <div class="col-lg-11">
+                <label class="switch">
+                    <input type="checkbox" onchange="window.location.href='summaryt.html'">
+                    <div class="slider round"></div>
+                </label>
+                <ul class="chart">
+	<li class="bar teal" style="height: 21%;" title="95">
+<div class="skill">Bobby C.</div></li>
+	<li class="bar salmon" style="height: 21%;" title="90">
+<div class="skill">Bobby P.</div></li>
+	<li class="bar peach" style="height: 40%;" title="80">
+<div class="skill">Nikit B.</div></li>
+	<li class="bar lime" style="height: 80%;" title="75">
+<div class="skill">Ori G.</div></li>
+	<li class="bar grape" style="height: 100%;" title="40">
+<div class="skill">Daanish K.</div></li>
+  <li class="bar teal" style="height: 21%;" title="95">
+<div class="skill">Homer S.</div></li>
+	<li class="bar salmon" style="height: 0%;" title="90">
+<div class="skill">Carl G.</div></li>
+	<li class="bar peach" style="height: 21%;" title="80">
+<div class="skill">Daryl D.</div></li>
+	<li class="bar lime" style="height: 40%;" title="75">
+<div class="skill">Ted M.</div></li>
+	<li class="bar grape" style="height: 80%;" title="40">
+<div class="skill">Frank U.</div></li>
+  <li class="bar teal" style="height: 60%;" title="95">
+<div class="skill">Ross G.</div></li>
+	<li class="bar salmon" style="height: 21%;" title="90">
+<div class="skill">Rovik R.</div></li>
+	<li class="bar peach" style="height: 21%;" title="80">
+<div class="skill">Joey T.</div></li>
+	<li class="bar lime" style="height: 80%;" title="75">
+<div class="skill">Philip G.</div></li>
+                    <li class="bar teal" style="height: 37%;" title="95">
+<div class="skill">James C.</div></li>
+	<li class="bar salmon" style="height: 24%;" title="90">
+<div class="skill">Dylan T.</div></li>
+</ul>
+              </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+
+    <!-- /.container -->
+
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
